@@ -36,7 +36,7 @@ Architecture, workflows, and security controls are accurate, but specific values
 
 Full details: `docs/ip-addressing.md`
 
-## VM Inventory (Example)
+## VM Inventory
 **LAN1 – Enterprise / Blue Team**
 - AD-DC01 (Windows Server) – Domain Services, DNS
 - AD-WIN10, AD-WIN11 – Domain joined endpoints
