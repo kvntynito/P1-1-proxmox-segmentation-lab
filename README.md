@@ -37,18 +37,29 @@ Architecture, workflows, and security controls are accurate, but specific values
 Full details: `docs/ip-addressing.md`
 
 ## VM Inventory
-**LAN1 – Enterprise / Blue Team**
-- AD-DC01 (Windows Server) – Domain Services, DNS
-- AD-WIN10, AD-WIN11 – Domain joined endpoints
-- SIEM-SPLUNK01 – Splunk Free (optional)
-- SEC-KALI01 – attacker simulation (optional)
 
-**LAN2 – Vulnerable / Testing**
-- VULN-METASPLOITABLE2
-- VULN-DVWA / WebGoat
-- VULN-WIN2019 (unpatched)
-- VULN-OPENVAS (scanner)
-- VULN-UBU-OLD (outdated Linux)
+### LAN1 — Enterprise / Blue Team (Production-like zone)
+- **AD-DC01 (Windows Server)** — Domain Services + DNS  
+  **Role:** Central identity + name resolution for the lab (domain auth, DNS, GPO baseline)
+
+- **AD-WIN10 / AD-WIN11 (Domain-joined endpoints)** — User workstations  
+  **Role:** Generate realistic endpoint activity for monitoring and investigations (logons, process exec, PowerShell, Sysmon/WEF)
+
+- **AD-FS01 (File Server)** — SMB shares + NTFS permissions (optional but recommended)  
+  **Role:** Add common enterprise traffic + access auditing scenarios (SMB auth, file access logs, lateral-movement practice)
+
+- **SIEM-SPLUNK01 (Splunk Free)** — Log ingestion + searching (optional)  
+  **Role:** Centralize logs and support investigation workflows (SPL searches, dashboards, triage)
+
+- **SEC-KALI01 (Attacker Simulation)** — Controlled adversary emulation (optional)  
+  **Role:** Safely generate attack traffic for detections and incident response practice
+
+### LAN2 — Vulnerable / Testing (Intentionally insecure zone)
+- **VULN-METASPLOITABLE2**  
+  **Role:** Repeatable vulnerable services for testing segmentation controls and detections
+
+- **VULN-DVWA / WebGoat**  
+  **Role:** Web app practice targets to generate realistic web att
 
 Full list: `docs/vm-inventory.md`
 
