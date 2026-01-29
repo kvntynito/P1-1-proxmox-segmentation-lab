@@ -12,3 +12,7 @@
   
 ## Only upload internal RFC1918 subnets like 10.x/172.16-31/192.168.
 
+## Sanitization Method
+- Documentation uses **representative subnets** (not my real home IP plan).
+- Screenshots are reviewed to remove WAN/public IPs, DDNS/domains, VPN details, and secrets.
+- No raw pfSense backups/exports are uploaded.
