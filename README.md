@@ -39,27 +39,38 @@ Full details: `docs/ip-addressing.md`
 ## VM Inventory
 
 ### LAN1 — Enterprise / Blue Team (Production-like zone)
-- **AD-DC01 (Windows Server)** — Domain Services + DNS  
-  **Role:** Central identity + name resolution for the lab (domain auth, DNS, GPO baseline)
+- **AD-DC01 (Windows Server)** — Domain Services, DNS  
+  **Why it’s included:** I wanted a realistic enterprise identity backbone for domain authentication, DNS, and policy-driven testing.
 
 - **AD-WIN10 / AD-WIN11 (Domain-joined endpoints)** — User workstations  
-  **Role:** Generate realistic endpoint activity for monitoring and investigations (logons, process exec, PowerShell, Sysmon/WEF)
+  **Why it’s included:** These are my “real user” machines to generate authentic endpoint activity for monitoring and investigations (logons, process execution, PowerShell, Sysmon/WEF).
 
-- **AD-FS01 (File Server)** — SMB shares + NTFS permissions (optional but recommended)  
-  **Role:** Add common enterprise traffic + access auditing scenarios (SMB auth, file access logs, lateral-movement practice)
+- **AD-FS01 (File Server)** — SMB shares, NTFS permissions *(optional but recommended)*  
+  **Why it’s included:** File servers create the kind of everyday east-west traffic enterprises actually have, and they’re perfect for access auditing scenarios (SMB auth, share access, permission changes).
 
-- **SIEM-SPLUNK01 (Splunk Free)** — Log ingestion + searching (optional)  
-  **Role:** Centralize logs and support investigation workflows (SPL searches, dashboards, triage)
+- **SIEM-SPLUNK01 (Splunk Free)** *(optional)*  
+  **Why it’s included:** I use this to centralize logs and practice investigation workflows (searching, filtering, pivoting, building a repeatable triage process).
 
-- **SEC-KALI01 (Attacker Simulation)** — Controlled adversary emulation (optional)  
-  **Role:** Safely generate attack traffic for detections and incident response practice
+- **SEC-KALI01 (Attacker Simulation)** *(optional)*  
+  **Why it’s included:** This gives me a controlled way to generate adversary-like activity so I can validate segmentation rules and detection coverage without touching anything outside the lab.
+
+---
 
 ### LAN2 — Vulnerable / Testing (Intentionally insecure zone)
 - **VULN-METASPLOITABLE2**  
-  **Role:** Repeatable vulnerable services for testing segmentation controls and detections
+  **Why it’s included:** It’s a consistent, repeatable vulnerable target that lets me test segmentation controls and generate known-bad telemetry.
 
 - **VULN-DVWA / WebGoat**  
-  **Role:** Web app practice targets to generate realistic web att
+  **Why it’s included:** These give me web-app attack practice targets so I can generate realistic web attack signals and see what shows up in logs.
+
+- **VULN-WIN2019 (Unpatched)**  
+  **Why it’s included:** I wanted a Windows target that supports exploitation/lateral movement practice and lets me focus on Windows event/Sysmon investigation patterns.
+
+- **VULN-OPENVAS (Scanner)**  
+  **Why it’s included:** This supports a vulnerability management workflow—scan, review findings, remediate, then rescan to confirm.
+
+- **VULN-UBU-OLD (Outdated Linux)**  
+  **Why it’s included:** I use an intentionally outdated Linux box to simulate legacy risk and test hardening gaps and detection visibility.
 
 Full list: `docs/vm-inventory.md`
 
