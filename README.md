@@ -3,6 +3,10 @@
 ## Overview
 This repo documents a segmented Proxmox homelab designed to mimic an enterprise environment. The lab uses **pfSense as the edge firewall/router** with **multiple Proxmox bridges** to separate traffic into distinct security zones (Enterprise LAN vs Vulnerable LAN), enabling realistic security testing, monitoring, and containment scenarios.
 
+## Sanitization Note
+To reduce risk, this repo uses **representative** IP ranges, hostnames, and identifiers.  
+Architecture, workflows, and security controls are accurate, but specific values may be modified for privacy/security.
+
 ## Objectives
 - Build a lab with **network segmentation** and **least privilege** routing between zones
 - Implement **pfSense** routing + firewall policy between zones
