@@ -72,6 +72,9 @@ Full details: `docs/ip-addressing.md`
 - **VULN-UBU-OLD (Outdated Linux)**  
   **Why it’s included:** I use an intentionally outdated Linux box to simulate legacy risk and test hardening gaps and detection visibility.
 
+### How I use these zones
+I treat **LAN1** as the “production-like” environment where identity, endpoints, and monitoring live, and **LAN2** as a controlled risk zone for vulnerable targets and scanning. Segmentation is enforced at pfSense with a deny-by-default posture between LANs, and I only allow specific flows when a lab scenario requires it (e.g., scanner-to-target traffic or admin/testing access).
+
 Full list: `docs/vm-inventory.md`
 
 ## Firewall Policy (What I enforced)
