@@ -1,4 +1,4 @@
-# P1-1: Proxmox Segmentation Lab (pfSense + Multi-LAN)
+# P1-1: Proxmox Segmentation Lab 
 
 ## Overview
 This repo documents a segmented Proxmox homelab designed to mimic an enterprise environment. The lab uses **pfSense as the edge firewall/router** with **multiple Proxmox bridges** to separate traffic into distinct security zones (Enterprise LAN vs Vulnerable LAN), enabling realistic security testing, monitoring, and containment scenarios.
