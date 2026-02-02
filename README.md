@@ -13,6 +13,12 @@ Architecture, workflows, and security controls are accurate, but specific values
 - Maintain a reusable VM layout for SOC / blue-team and vuln-testing workflows
 - Provide clear documentation + screenshots for reproducibility
 
+## Network Diagram
+<img src="diagrams/network-diagram.png" alt="Proxmox Segmentation Lab Network Diagram" width="950">
+
+**Design intent:** FW-EDGE01 (pfSense) provides WAN access and enforces segmentation between **LAN1 (enterprise/blue-team)** and **LAN2 (vulnerable/testing)**.  
+**Default stance:** deny-by-default from **LAN2 → LAN1** to limit lateral movement; allow only scenario-driven exceptions.
+
 ## High-Level Architecture
 **Zones**
 - **WAN (vmbr0):** home uplink, used only by pfSense WAN
@@ -24,8 +30,6 @@ Architecture, workflows, and security controls are accurate, but specific values
   - NIC1 → vmbr0 (WAN)
   - NIC2 → vmbr1 (LAN1 Enterprise)
   - NIC3 → vmbr2 (LAN2 Vulnerable)
-
-> Diagram: see `diagrams/network-diagram.png`
 
 ## IP Plan (Example)
 | Zone | Subnet | Gateway | Notes |
@@ -113,4 +117,3 @@ Walkthrough docs:
 This repo is the foundation for:
 - Centralized telemetry pipelines (WEF/Sysmon → Wazuh/Elastic/Splunk)
 - Attack simulation + investigation case files using segmented zones
-
