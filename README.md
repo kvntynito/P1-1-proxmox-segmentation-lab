@@ -14,9 +14,10 @@ Architecture, workflows, and security controls are accurate, but specific values
 - Provide clear documentation + screenshots for reproducibility
 
 ## Network Diagram
-<img src="./diagrams/network-diagram.png" alt="Proxmox Segmentation Lab Network Diagram" width="950">
+<img src="https://github.com/kvntynito/P1-1-proxmox-segmentation-lab/blob/main/diagrams/repo1-network-diagram.png?raw=true" alt="Proxmox Segmentation Lab Network Diagram" width="950">
 
 **Design intent:** FW-EDGE01 (pfSense) provides WAN access and enforces segmentation between **LAN1 (enterprise/blue-team)** and **LAN2 (vulnerable/testing)**.  
+
 **Default stance:** deny-by-default from **LAN2 → LAN1** to limit lateral movement; allow only scenario-driven exceptions.
 
 ## High-Level Architecture
